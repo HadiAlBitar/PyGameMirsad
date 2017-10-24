@@ -3,7 +3,7 @@ import math
 import pygame
 
 
-def findTrekantOmkreds(): #Lead: Yusuf, team: Hadi
+def findTrekantOmkreds(a,b,c): #Lead: Yusuf, team: Hadi
     a + b + c
     return [a,b,c]
 
@@ -18,7 +18,7 @@ def findTrekantAreal(sider, vinkler): #Lead: Rasmus W, team: Jakob
     areal = (1 / 2) * sider[0] * sider[1] * math.sin(math.radians(vinkler[2]))
     return areal
 
-def findTrekantVinkler(a,b,c): #Lead: Said, team: Omar
+def findTrekantVinkler(x1, x2, x3, y1, y2, y3): #Lead: Said, team: Omar
     vinkelSum = 180
     taellerA = (b ** 2 + c ** 2 - a ** 2)
     naevnerA = (2 * b * c)
@@ -43,21 +43,25 @@ def findTrekantOmskrevneCirkelsRadius(a,b,c): #Lead: Gwion, team: Frederik L, Fr
     print('Radius Af Din Cirkel Er: ', rAC1)
     print('---')
 
-def findTrekantOmskrevneCirkelsKordinater(): #Lead: Magnus, team: Christoffer, Liam
-    return 0
+def findTrekantOmskrevneCirkelsKordinater(x1, x2, x3, y1, y2, y3): #Lead: Magnus, team: Christoffer, Liam
+    return [x,y]
 
-def findTrekantIndskrevneCirkelsRadius(): #Lead: Michael, team: Alexander
-    return 0
+def findTrekantIndskrevneCirkelsRadius(areal,omkreds): #Lead: Michael, team: Alexander
+    return r
 
-def findTrekantIndskrevneCirkelsKordinater(): #Lead: Gabriel, team: Allan, Daniel
-    return 0
+def findTrekantIndskrevneCirkelsKordinater(x1, x2, x3, y1, y2, y3): #Lead: Gabriel, team: Allan, Daniel
+    return [x,y]
 
-def tegnTrekant(): #Lead: Yusuf, team: Hadi
+def tegnTrekant(x1, x2, x3, y1, y2, y3,window): #Lead: Yusuf, team: Hadi
     while True:
         mitVindue = pygame.display.set_mode((1000, 1000))
         mitVindue.fill((255, 255, 255))
         pygame.display.update()
         return [pygame.draw.polygon(mitVindue, (0, 0, 0), ((x_1, y_1),(x_2,y_2),(x_3,y_3)), 0)]
+    return window
 
 def skrivResultater(): #Lead: Gwion, team: Frederik L, Frederik H
     return 0
+
+def tegnBaggrund(): #Lead: Bjørn, team: Elo, Nick
+    return
