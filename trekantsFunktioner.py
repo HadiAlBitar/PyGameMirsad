@@ -36,20 +36,50 @@ def findTrekantVinkler(a,b,c): #Closed. Lead: Said, team: Omar
 
     return [A, B, C]
 
-def findTrekantOmskrevneCirkelsRadius(a,b,c): #Lead: Gwion, team: Frederik L, Frederik H
+def findTrekantIndskrevneCirkelsRadius(areal,omkreds): #Closed. Lead: Michael, team: Alexander
+    r = areal / (omkreds * 2)
+    return r
+
+def findTrekantOmskrevneCirkelsRadius(a,b,c): #Closed. Lead: Gwion, team: Frederik L, Frederik H
     s = (a + b + c) / 2
     aAT = math.sqrt(s * (s - a) * (s - b) * (s - c))
     rAC1 = (a * b * c) / (aAT * 4)
 
-    print('---')
-    print('Radius Af Din Cirkel Er: ', rAC1)
-    print('---')
+    return rAC1
 
-def findTrekantOmskrevneCirkelsKordinater(x1, x2, x3, y1, y2, y3): #Lead: Magnus, team: Christoffer, Liam
+def flytTrekant(x1,x2,x3,y1,y2,y3,xflyt,yflyt): #Closed. Lead: Michael, team: Alexander
+    x1 = x1 + xflyt
+    x2 = x2 + xflyt
+    x3 = x3 + xflyt
+    y1 = y1 + yflyt
+    y2 = y2 + yflyt
+    y3 = y3 + yflyt
+    return [x1,x2,x3,y1,y2,y3]
+
+def findTrekantOmskrevneCirkelsKordinater(x1, x2, x3, y1, y2, y3): #Closed. Lead: Magnus, team: Christoffer, Liam
+    ## Linjen mellem x/y 1 og x/y 2
+
+    linje12a = (y2 - y1) / (x2 - x1)
+    a12 = -1 / linje12a
+
+    x12 = (x1 + x2) / 2
+    y12 = (y1 + y2) / 2
+
+    b12 = y12 - a12 * x12
+
+    ## Linjen mellem x/y 1 og x/y 3
+
+    linje13a = (y3 - y1) / (x3 - x1)
+    a13 = -1 / linje13a
+
+    x13 = (x1 + x3) / 2
+    y13 = (y1 + y3) / 2
+
+    b13 = y13 - a13 * x13
+
+    x = (b13 - b12) / (a12 - a13)
+    y = a12 * x + b12
     return [x,y]
-
-def findTrekantIndskrevneCirkelsRadius(areal,omkreds): #Lead: Michael, team: Alexander
-    return r
 
 def findTrekantIndskrevneCirkelsKordinater(x1, x2, x3, y1, y2, y3): #Lead: Gabriel, team: Allan, Daniel
     return [x,y]
@@ -59,6 +89,3 @@ def skrivResultater(): #Lead: Gwion, team: Frederik L, Frederik H
 
 def tegnBaggrund(): #Lead: Bjørn, team: Elo, Nick
     return
-
-def flytTrekant(x1,x2,x3,y1,y2,y3,xflyt,yflyt): #Lead: Michael, team: Alexander
-    return [x1,x2,x3,y1,y2,y3]
