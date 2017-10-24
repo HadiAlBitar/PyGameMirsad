@@ -13,12 +13,12 @@ def trekantSider(x1, x2, x3, y1, y2, y3): #Closed. Lead: Bjørn, Rasmus E, Nick
     c = math.sqrt((x3 - x1)**2 + (y3 - y1)**2)
     return [a, b, c]
 
-def findTrekantAreal(sider, vinkler): #Lead: Rasmus W, team: Jakob
+def findTrekantAreal(a,b,C): #Lead: Rasmus W, team: Jakob
     # sider = findTrekantSidelængde, vinkler = findTrekantVinkler
     areal = (1 / 2) * sider[0] * sider[1] * math.sin(math.radians(vinkler[2]))
     return areal
 
-def findTrekantVinkler(x1, x2, x3, y1, y2, y3): #Lead: Said, team: Omar
+def findTrekantVinkler(a,b,c): #Closed. Lead: Said, team: Omar
     vinkelSum = 180
     taellerA = (b ** 2 + c ** 2 - a ** 2)
     naevnerA = (2 * b * c)
@@ -32,7 +32,7 @@ def findTrekantVinkler(x1, x2, x3, y1, y2, y3): #Lead: Said, team: Omar
 
     C = vinkelSum - A - B
 
-    return (A, B, C)
+    return [A, B, C]
 
 def findTrekantOmskrevneCirkelsRadius(a,b,c): #Lead: Gwion, team: Frederik L, Frederik H
     s = (a + b + c) / 2
