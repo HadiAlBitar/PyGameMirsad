@@ -4,8 +4,8 @@ import pygame
 
 
 def findTrekantOmkreds(a,b,c): #Lead: Yusuf, team: Hadi
-    a + b + c
-    return [a,b,c]
+    TrekantOmkreds = a + b + c
+    return TrekantOmkreds
 
 def trekantSider(x1, x2, x3, y1, y2, y3): #Closed. Lead: Bjørn, Rasmus E, Nick
     a = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
@@ -14,8 +14,7 @@ def trekantSider(x1, x2, x3, y1, y2, y3): #Closed. Lead: Bjørn, Rasmus E, Nick
     return [a, b, c]
 
 def findTrekantAreal(a,b,C): #Lead: Rasmus W, team: Jakob
-    # sider = findTrekantSidelængde, vinkler = findTrekantVinkler
-    areal = (1 / 2) * sider[0] * sider[1] * math.sin(math.radians(vinkler[2]))
+    areal = (1 / 2) * a * b * math.sin(math.radians(C))
     return areal
 
 def findTrekantVinkler(a,b,c): #Closed. Lead: Said, team: Omar
