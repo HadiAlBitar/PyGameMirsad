@@ -6,6 +6,7 @@ pygame.init()
 w = 1000
 h = 800
 isRunning = True
+hasPainted = False
 corners = [];
 
 window = pygame.display.set_mode([w,h])
@@ -25,7 +26,18 @@ while isRunning:
         x,y = corner
         pygame.draw.circle(window,[255,0,0],[x,y],5)
 
-    if len(corners) == 3:
-        pygame.draw.polygon(window,[0,0,255],corners,2)
+    if len(corners) == 3 and not hasPainted:
+        x1,y1 = corners[0]
+        x2, y2 = corners[1]
+        x3, y3 = corners[2]
+        a,b,c = trekantsFunktioner.trekantSider(x1, x2, x3, y1, y2, y3)
+        A,B,C = trekantsFunktioner.findTrekantVinkler(a,b,c)
+        areal = trekantsFunktioner.findTrekantAreal(a, b, C)
+        omkreds = trekantsFunktioner.findTrekantOmkreds(a,b,c)
+        trekantsFunktioner.tegnTrekant(x1,x2,x3,y1,y2,y3,window)
+        hasPainted = True
+
+    if len(corners) != 3:
+        hasPainted = False
 
     pygame.display.update()

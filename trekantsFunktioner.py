@@ -2,8 +2,11 @@ import math
 
 import pygame
 
+def tegnTrekant(x1, x2, x3, y1, y2, y3,window): #Closed. Lead: Yusuf, team: Hadi
+    pygame.draw.polygon(window, (0, 0, 0), ((x1, y1),(x2,y2),(x3,y3)), 0)
+    return window
 
-def findTrekantOmkreds(a,b,c): #Lead: Yusuf, team: Hadi
+def findTrekantOmkreds(a,b,c): #Closed. Lead: Yusuf, team: Hadi
     TrekantOmkreds = a + b + c
     return TrekantOmkreds
 
@@ -13,7 +16,7 @@ def trekantSider(x1, x2, x3, y1, y2, y3): #Closed. Lead: Bjørn, Rasmus E, Nick
     c = math.sqrt((x3 - x1)**2 + (y3 - y1)**2)
     return [a, b, c]
 
-def findTrekantAreal(a,b,C): #Lead: Rasmus W, team: Jakob
+def findTrekantAreal(a,b,C): #Closed. Lead: Rasmus W, team: Jakob
     areal = (1 / 2) * a * b * math.sin(math.radians(C))
     return areal
 
@@ -51,16 +54,11 @@ def findTrekantIndskrevneCirkelsRadius(areal,omkreds): #Lead: Michael, team: Ale
 def findTrekantIndskrevneCirkelsKordinater(x1, x2, x3, y1, y2, y3): #Lead: Gabriel, team: Allan, Daniel
     return [x,y]
 
-def tegnTrekant(x1, x2, x3, y1, y2, y3,window): #Lead: Yusuf, team: Hadi
-    while True:
-        mitVindue = pygame.display.set_mode((1000, 1000))
-        mitVindue.fill((255, 255, 255))
-        pygame.display.update()
-        return [pygame.draw.polygon(mitVindue, (0, 0, 0), ((x_1, y_1),(x_2,y_2),(x_3,y_3)), 0)]
-    return window
-
 def skrivResultater(): #Lead: Gwion, team: Frederik L, Frederik H
-    return 0
+    return
 
 def tegnBaggrund(): #Lead: Bjørn, team: Elo, Nick
     return
+
+def flytTrekant(x1,x2,x3,y1,y2,y3,xflyt,yflyt): #Lead: Michael, team: Alexander
+    return [x1,x2,x3,y1,y2,y3]
